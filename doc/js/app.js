@@ -2,11 +2,11 @@ function createSourceLinks() {
     $('.method_details_list .source_code').
         before("<span class='showSource'>[<a href='#' class='toggleSource'>View source</a>]</span>");
     $('.toggleSource').toggle(function() {
-       $(this).parent().next().slideDown(100);
+       $(this).parent().nextAll('.source_code').slideDown(100);
        $(this).text("Hide source");
     },
     function() {
-        $(this).parent().next().slideUp(100);
+        $(this).parent().nextAll('.source_code').slideUp(100);
         $(this).text("View source");
     });
 }
@@ -49,16 +49,9 @@ function fixBoxInfoHeights() {
 }
 
 function searchFrameLinks() {
-  $('#method_list_link').click(function() {
-    toggleSearchFrame(this, relpath + 'method_list.html');
-  });
-
-  $('#class_list_link').click(function() {
-    toggleSearchFrame(this, relpath + 'class_list.html');
-  });
-
-  $('#file_list_link').click(function() {
-    toggleSearchFrame(this, relpath + 'file_list.html');
+  $('.full_list_link').click(function() {
+    toggleSearchFrame(this, $(this).attr('href'));
+    return false;
   });
 }
 
@@ -82,10 +75,13 @@ function linkSummaries() {
 }
 
 function framesInit() {
-  if (window.top.frames.main) {
+  if (hasFrames) {
     document.body.className = 'frames';
     $('#menu .noframes a').attr('href', document.location);
-    $('html head title', window.parent.document).text($('html head title').text());
+    window.top.document.title = $('html head title').text();
+  }
+  else {
+    $('#menu .noframes a').text('frames').attr('href', framesUrl);
   }
 }
 
@@ -109,10 +105,10 @@ function summaryToggle() {
   $('.summary_toggle').click(function() {
     localStorage.summaryCollapsed = $(this).text();
     $(this).text($(this).text() == "collapse" ? "expand" : "collapse");
-    var next = $(this).parent().parent().next();
+    var next = $(this).parent().parent().nextAll('ul.summary').first();
     if (next.hasClass('compact')) {
       next.toggle();
-      next.next().toggle();
+      next.nextAll('ul.summary').first().toggle();
     }
     else if (next.hasClass('summary')) {
       var list = $('<ul class="summary compact" />');
@@ -151,13 +147,18 @@ function generateTOC() {
   for (i = 0; i < tags.length; i++) { tags[i] = '#filecontents ' + tags[i]; }
   var lastTag = parseInt(tags[0][1], 10);
   $(tags.join(', ')).each(function() {
+    if ($(this).parents('.method_details .docstring').length != 0) return;
     if (this.id == "filecontents") return;
     show = true;
     var thisTag = parseInt(this.tagName[1], 10);
     if (this.id.length === 0) {
-      var proposedId = $(this).text().replace(/[^a-z0-9-]/ig, '_');
-      if ($('#' + proposedId).length > 0) { proposedId += counter; counter++; }
-      this.id = proposedId;
+      var proposedId = $(this).attr('toc-id');
+      if (typeof(proposedId) != "undefined") this.id = proposedId;
+      else {
+        var proposedId = $(this).text().replace(/[^a-z0-9-]/ig, '_');
+        if ($('#' + proposedId).length > 0) { proposedId += counter; counter++; }
+        this.id = proposedId;
+      }
     }
     if (thisTag > lastTag) {
       for (i = 0; i < thisTag - lastTag; i++) {
@@ -167,7 +168,9 @@ function generateTOC() {
     if (thisTag < lastTag) {
       for (i = 0; i < lastTag - thisTag; i++) toc = toc.parent();
     }
-    toc.append('<li><a href="#' + this.id + '">' + $(this).text() + '</a></li>');
+    var title = $(this).attr('toc-title');
+    if (typeof(title) == "undefined") title = $(this).text();
+    toc.append('<li><a href="#' + this.id + '">' + title + '</a></li>');
     lastTag = thisTag;
   });
   if (!show) return;

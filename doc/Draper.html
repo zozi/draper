@@ -6,7 +6,7 @@
 <title>
   Module: Draper
   
-    &mdash; Documentation by YARD 0.7.2
+    &mdash; Documentation by YARD 0.8.1
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (D)</a> &raquo; 
+    <a href="_index.html">Index (D)</a> &raquo;
     
     
     <span class="title">Draper</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Module: Draper
   
   
@@ -72,8 +79,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/draper/base.rb<span class="defines">,<br />
-  lib/draper/system.rb,<br /> lib/draper/version.rb,<br /> lib/draper/all_helpers.rb,<br /> lib/draper/lazy_helpers.rb</span>
+    <dd class="r1 last">lib/draper/system.rb<span class="defines">,<br />
+  lib/draper/version.rb,<br /> lib/draper/railtie.rb,<br /> lib/draper/decorator.rb,<br /> lib/draper/lazy_helpers.rb,<br /> lib/draper/view_context.rb,<br /> lib/draper/test/view_context.rb,<br /> lib/draper/test/rspec_integration.rb,<br /> lib/draper/decorated_enumerable_proxy.rb</span>
 </dd>
   
 </dl>
@@ -81,13 +88,13 @@
 
 <h2>Defined Under Namespace</h2>
 <p class="children">
-   
+  
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Draper/AllHelpers.html" title="Draper::AllHelpers (module)">AllHelpers</a></span>, <span class='object_link'><a href="Draper/LazyHelpers.html" title="Draper::LazyHelpers (module)">LazyHelpers</a></span>, <span class='object_link'><a href="Draper/ModelSupport.html" title="Draper::ModelSupport (module)">ModelSupport</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Draper/ActiveModelSupport.html" title="Draper::ActiveModelSupport (module)">ActiveModelSupport</a></span>, <span class='object_link'><a href="Draper/DecoratorExampleGroup.html" title="Draper::DecoratorExampleGroup (module)">DecoratorExampleGroup</a></span>, <span class='object_link'><a href="Draper/HelperSupport.html" title="Draper::HelperSupport (module)">HelperSupport</a></span>, <span class='object_link'><a href="Draper/LazyHelpers.html" title="Draper::LazyHelpers (module)">LazyHelpers</a></span>, <span class='object_link'><a href="Draper/ModelSupport.html" title="Draper::ModelSupport (module)">ModelSupport</a></span>, <span class='object_link'><a href="Draper/ViewContext.html" title="Draper::ViewContext (module)">ViewContext</a></span>, <span class='object_link'><a href="Draper/ViewContextFilter.html" title="Draper::ViewContextFilter (module)">ViewContextFilter</a></span>
     
-   
+  
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Draper/Base.html" title="Draper::Base (class)">Base</a></span>, <span class='object_link'><a href="Draper/System.html" title="Draper::System (class)">System</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Draper/DecoratedEnumerableProxy.html" title="Draper::DecoratedEnumerableProxy (class)">DecoratedEnumerableProxy</a></span>, <span class='object_link'><a href="Draper/Decorator.html" title="Draper::Decorator (class)">Decorator</a></span>, <span class='object_link'><a href="Draper/Railtie.html" title="Draper::Railtie (class)">Railtie</a></span>, <span class='object_link'><a href="Draper/System.html" title="Draper::System (class)">System</a></span>
     
   
 </p>
@@ -99,8 +106,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='string val'>&quot;0.7.3&quot;</span>
-</pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.15.0rc1</span><span class='tstring_end'>&quot;</span></span></pre></dd>
       
     </dl>
   
@@ -111,12 +117,14 @@
 
 
 
+
+
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Sep  1 01:13:36 2011 by 
+  Generated on Wed Jun 20 16:03:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.2 (ruby-1.8.7).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>

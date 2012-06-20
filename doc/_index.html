@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Documentation by YARD 0.7.2
+  Documentation by YARD 0.8.1
   
 </title>
 
@@ -13,9 +13,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -24,35 +26,37 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    
-    <span class="title"></span>
-  
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
-    <div id="content"><h1 class="noborder title">Documentation by YARD 0.7.2</h1>
+
+    <div id="content"><h1 class="noborder title">Documentation by YARD 0.8.1</h1>
 <div id="listing">
   <h1 class="alphaindex">Alphabetic Index</h1>
   
@@ -72,7 +76,12 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper/AllHelpers.html" title="Draper::AllHelpers (module)">AllHelpers</a></span> 
+                <span class='object_link'><a href="ActiveModel.html" title="ActiveModel (module)">ActiveModel</a></span>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/ActiveModelSupport.html" title="Draper::ActiveModelSupport (module)">ActiveModelSupport</a></span>
                 
                   <small>(Draper)</small>
                 
@@ -82,14 +91,14 @@
         </ul>
       
         
-        <ul id="alpha_B" class="alpha">
-          <li class="letter">B</li>
+        <ul id="alpha_C" class="alpha">
+          <li class="letter">C</li>
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper/Base.html" title="Draper::Base (class)">Base</a></span> 
+                <span class='object_link'><a href="Draper/ModelSupport/ClassMethods.html" title="Draper::ModelSupport::ClassMethods (module)">ClassMethods</a></span>
                 
-                  <small>(Draper)</small>
+                  <small>(Draper::ModelSupport)</small>
                 
               </li>
             
@@ -102,7 +111,57 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper.html" title="Draper (module)">Draper</a></span> 
+                <span class='object_link'><a href="Draper/DecoratedEnumerableProxy.html" title="Draper::DecoratedEnumerableProxy (class)">DecoratedEnumerableProxy</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/Decorator.html" title="Draper::Decorator (class)">Decorator</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="MiniTest/Spec/Decorator.html" title="MiniTest::Spec::Decorator (class)">Decorator</a></span>
+                
+                  <small>(MiniTest::Spec)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/DecoratorExampleGroup.html" title="Draper::DecoratorExampleGroup (module)">DecoratorExampleGroup</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="MiniTest/Unit/DecoratorTestCase.html" title="MiniTest::Unit::DecoratorTestCase (class)">DecoratorTestCase</a></span>
+                
+                  <small>(MiniTest::Unit)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper.html" title="Draper (module)">Draper</a></span>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
+        <ul id="alpha_H" class="alpha">
+          <li class="letter">H</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Draper/HelperSupport.html" title="Draper::HelperSupport (module)">HelperSupport</a></span>
+                
+                  <small>(Draper)</small>
                 
               </li>
             
@@ -115,7 +174,7 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper/LazyHelpers.html" title="Draper::LazyHelpers (module)">LazyHelpers</a></span> 
+                <span class='object_link'><a href="Draper/LazyHelpers.html" title="Draper::LazyHelpers (module)">LazyHelpers</a></span>
                 
                   <small>(Draper)</small>
                 
@@ -130,7 +189,52 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper/ModelSupport.html" title="Draper::ModelSupport (module)">ModelSupport</a></span> 
+                <span class='object_link'><a href="MiniTest.html" title="MiniTest (module)">MiniTest</a></span>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/ModelSupport.html" title="Draper::ModelSupport (module)">ModelSupport</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
+        <ul id="alpha_P" class="alpha">
+          <li class="letter">P</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Draper/ActiveModelSupport/Proxies.html" title="Draper::ActiveModelSupport::Proxies (module)">Proxies</a></span>
+                
+                  <small>(Draper::ActiveModelSupport)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
+          </td><td valign='top' width="33%">
+          
+        
+        <ul id="alpha_R" class="alpha">
+          <li class="letter">R</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="ActiveModel/Railtie.html" title="ActiveModel::Railtie (class)">Railtie</a></span>
+                
+                  <small>(ActiveModel)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/Railtie.html" title="Draper::Railtie (class)">Railtie</a></span>
                 
                   <small>(Draper)</small>
                 
@@ -145,7 +249,36 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Draper/System.html" title="Draper::System (class)">System</a></span> 
+                <span class='object_link'><a href="MiniTest/Spec.html" title="MiniTest::Spec (class)">Spec</a></span>
+                
+                  <small>(MiniTest)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/System.html" title="Draper::System (class)">System</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
+        <ul id="alpha_V" class="alpha">
+          <li class="letter">V</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Draper/ViewContext.html" title="Draper::ViewContext (module)">ViewContext</a></span>
+                
+                  <small>(Draper)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Draper/ViewContextFilter.html" title="Draper::ViewContextFilter (module)">ViewContextFilter</a></span>
                 
                   <small>(Draper)</small>
                 
@@ -161,11 +294,11 @@
 </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Thu Sep  1 01:13:36 2011 by 
+  Generated on Wed Jun 20 16:03:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.2 (ruby-1.8.7).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>

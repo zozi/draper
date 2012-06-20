@@ -11,7 +11,7 @@ module Draper::ActiveModelSupport
       proxies.each do |method_name, dependency|
         if base.model.kind_of?(dependency) || dependency.nil?
           base.singleton_class.class_eval do
-            if !base.class.instance_methods.include?(method_name) || base.class.instance_method(method_name).owner === Draper::Base
+            if !base.class.instance_methods.include?(method_name) || base.class.instance_method(method_name).owner === Draper::Decorator
               define_method(method_name) do |*args, &block|
                 model.send(method_name, *args, &block)
               end

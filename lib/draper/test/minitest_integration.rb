@@ -13,5 +13,5 @@ class MiniTest::Unit::DecoratorTestCase < MiniTest::Unit::TestCase
 end
 
 MiniTest::Spec.register_spec_type(MiniTest::Spec::Decorator) do |desc|
-  desc.superclass == Draper::Base
+  desc.superclass == Draper::Decorator
 end
